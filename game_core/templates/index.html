@@ -34,6 +34,9 @@
         update(scoreRecord) {
           this.score = scoreRecord;
         },
+        applyScoreEffect(score) {
+          document.querySelector('#unity-canvas').style.boxShadow = `rgb(181 154 51) 0px 0px 30px ${score*1.5}px`;
+        }
       }
     </script>
     <script>
@@ -74,9 +77,9 @@
 
       var loaderUrl = jsUrl + "/flappy_bird_web.loader.js";
       var config = {
-        dataUrl: jsUrl + "/flappy_bird_web.data.br",
-        frameworkUrl: jsUrl + "/flappy_bird_web.framework.js.br",
-        codeUrl: jsUrl + "/flappy_bird_web.wasm.br",
+        dataUrl: jsUrl + "/flappy_bird_web.data.gz",
+        frameworkUrl: jsUrl + "/flappy_bird_web.framework.js.gz",
+        codeUrl: jsUrl + "/flappy_bird_web.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Flappy Bird Example",
