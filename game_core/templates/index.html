@@ -26,16 +26,37 @@
       </div>
     </div>
     <script>
-      window.playerScoreRecord = {
+      window.playerData = {
         score: 0,
-        retrieve() {
+        scoreRecord: 0,
+        effectColor: '#3b5583',
+        retrieveScore() {
           return this.score;
         },
-        update(scoreRecord) {
-          this.score = scoreRecord;
+        updateScore(score) {
+          this.score = score;
+          this.applyScoreEffect();
         },
-        applyScoreEffect(score) {
-          document.querySelector('#unity-canvas').style.boxShadow = `rgb(181 154 51) 0px 0px 30px ${score*1.5}px`;
+        retrieveRecord() {
+          return this.scoreRecord;
+        },
+        updateRecord(scoreRecord) {
+          this.scoreRecord = scoreRecord;
+          this.applyScoreEffect();
+        },
+        setEffectColor(color) {
+          this.effectColor = color;
+          console.log('setei cor', color, this.effectColor);
+          this.applyScoreEffect();
+        },
+        applyScoreEffect() {
+          document.querySelector('#unity-canvas').style.boxShadow = `${this.effectColor} 0px 0px 30px ${this.score*0.05}px`;
+          console.log('mudei o bagulho', document.querySelector('#unity-canvas').style.boxShadow, this.effectColor, this.score);
+        },
+        reset(){
+          this.updateRecord(0);
+          this.updateScore(0);
+          this.setEffectColor('#3b5583');
         }
       }
     </script>
@@ -116,7 +137,7 @@
         canvas.style.height = "600px";
       }
 
-      loadingBar.style.display = "block";
+      // loadingBar.style.display = "block";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
@@ -124,7 +145,7 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                loadingBar.style.display = "none";
+                // loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
