@@ -1,5 +1,5 @@
-# Jogo em WebGL - Voando na Cidade de Deus
+# WebGL game: "City of God Flight"
 
-Feito com Unity e compilado para WebGL, este projeto é só uma simples aplicação em Django (Python) pra exibir uma página web que carrega o jogo compilado para WebGL.
+Made with Unity and compiled for WebGL, this project is just a simple Django project (Python) to display a web page that loads the game.
 
-O jogo é uma versão de Flappy Bird em que o cenário é a matriz de um banco brasileiro, conhecida como Cidade de Deus (Osasco).
+The game is a version of Flappy Bird in which the setting is the headquarters of a Brazilian bank, known as City of God.
